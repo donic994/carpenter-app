@@ -62,7 +62,7 @@ function App() {
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
+          <Content style={{ margin: '15px 20px 15px 220px' }}>
             {content}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Created by Filip Gatarić @ 2020</Footer>
