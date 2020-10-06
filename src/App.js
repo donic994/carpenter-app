@@ -7,7 +7,8 @@ import Element from './MainWindow/Element/Element'
 import Part from './MainWindow/Part/Part'
 import Product from './MainWindow/Product/Product'
 import Role from './MainWindow/Role/Role'
-import { Layout } from 'antd';
+import { Layout, Image } from 'antd'
+import slika from './icons/app.png'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -57,7 +58,13 @@ function App() {
         }}
           collapsible collapsed={collapsed}
           onCollapse={onCollapse}>
-          <div className="logo" />
+          <div style={{ marginTop: '15px' }}>
+            <Image
+              width={150}
+              src={slika}
+              preview={false}
+            />
+          </div>
           <Navigation menuItemChange={handleMenuItemChange} />
         </Sider>
         <Layout className="site-layout">
