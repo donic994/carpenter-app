@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
 import Navigation from './MenuBar/Navigation';
+import { channels } from './constants'
 
 import { Layout } from 'antd';
 
@@ -13,6 +14,10 @@ class App extends React.Component {
   state = {
     collapsed: false,
   };
+
+  componentDidMount() {
+    
+  }
 
   onCollapse = collapsed => {
     console.log(collapsed);
