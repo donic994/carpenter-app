@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 
 const layout = {
     labelCol: {
@@ -18,15 +18,24 @@ const tailLayout = {
     },
 };
 
-function AddProduct() {
+function AddProduct(props) {
+
+    const successMessage = () => {
+        message.success('Dodali ste novi proizvod');
+    };
 
     const onFinish = (values) => {
         console.log('Success:', values);
+        successMessage()
+        props.formFinish()
+
     };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+
 
     return (
         <Form
@@ -91,7 +100,8 @@ function AddProduct() {
             </Form.Item>
 
             <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary"
+                    htmlType="submit">
                     Dodaj
         </Button>
             </Form.Item>

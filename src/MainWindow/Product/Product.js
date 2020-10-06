@@ -64,6 +64,9 @@ function Product() {
         setVisibleAddModal(true)
     };
 
+    const hideModal = () =>{
+        setVisibleAddModal(false)
+    }
 
     return (
         <div>
@@ -75,9 +78,10 @@ function Product() {
             <Modal
                 title="Dodaj novi proizvod"
                 visible={visibleAddModal}
+                onCancel={hideModal}
                 footer={null}
             >
-                <AddProduct/>
+                <AddProduct formFinish={hideModal}/>
             </Modal>
             <Table columns={columns}
                 dataSource={data} />
