@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, Button, message, InputNumber } from 'antd';
 
 const layout = {
     labelCol: {
@@ -70,7 +70,9 @@ function AddProduct(props) {
                     },
                 ]}
             >
-                <Input placeholder="Duljina proizvoda" id="inputDuljina" />
+                <InputNumber placeholder="Duljina(cm)"
+                    id="inputDuljina"
+                    min="0" />
             </Form.Item>
 
             <Form.Item
@@ -83,7 +85,9 @@ function AddProduct(props) {
                     },
                 ]}
             >
-                <Input placeholder="Širina proizvoda" id="inputSirina" />
+                <InputNumber placeholder="Širina(cm)"
+                    id="inputSirina"
+                    min="0" />
             </Form.Item>
 
             <Form.Item
@@ -96,7 +100,9 @@ function AddProduct(props) {
                     },
                 ]}
             >
-                <Input placeholder="Visina proizvoda" id="inputVisina" />
+                <InputNumber placeholder="Visina(cm)"
+                    id="inputVisina"
+                    min="0" />
             </Form.Item>
 
             <Form.Item {...tailLayout}>
