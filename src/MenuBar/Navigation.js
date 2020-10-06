@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import 'antd/dist/antd.css';
 import './Navigation.css'
 import { Menu } from 'antd';
-import {channels} from '../constants'
 
 import {
   AppstoreOutlined,
@@ -18,18 +17,7 @@ import {
 
 const { SubMenu } = Menu;
 
-function Navigation() {
-
-  const [menu, setMenu] = useState();
-
-  useEffect(() => {
-    console.log(menu)
-  });
-
-
-  const switchContent = (item) =>{
-
-  }
+function Navigation(props) {
 
   return (
     <div>
@@ -38,7 +26,7 @@ function Navigation() {
         defaultOpenKeys={['Products']}
         mode="inline"
         theme="dark"
-        onClick={(e) => setMenu(e.key)}
+        onClick={(e) => props.menuItemChange(parseInt(e.key))}
       >
         <SubMenu key="Products" icon={<DatabaseOutlined />} title="Proizvodi">
           <Menu.Item icon={<DatabaseOutlined />} key="1">
