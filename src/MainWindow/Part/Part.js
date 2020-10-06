@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-function Product() {
+function Part() {
 
     useEffect(() => {
 
@@ -10,9 +10,9 @@ function Product() {
 
     return (
         <div>
-            Ja sam Proizvod
+            Ja sam Dio
         </div>
     )
 }
 
-export default Product;
+export default Part;
