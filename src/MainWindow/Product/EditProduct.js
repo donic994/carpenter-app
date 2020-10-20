@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import 'antd/dist/antd.css';
 import { Form, Input, Button, message, InputNumber } from 'antd';
 
@@ -19,6 +19,11 @@ const tailLayout = {
 };
 
 function EditProduct(props) {
+    const [form] = Form.useForm();
+
+    useEffect(() => {
+        form.resetFields();
+    }, [props.row]);
 
     const successMessage = () => {
         message.success('Dodali ste novi proizvod');
@@ -35,15 +40,13 @@ function EditProduct(props) {
         console.log('Failed:', errorInfo);
     };
 
-
+    console.log("ROW: ", props.row)
 
     return (
         <Form
             {...layout}
+            form={form}
             name="basic"
-            initialValues={{
-                remember: false,
-            }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
         >

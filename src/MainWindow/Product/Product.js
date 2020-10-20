@@ -29,11 +29,14 @@ function Product() {
     const [data, setData] = useState(mockData);
     const [visibleAddModal, setVisibleAddModal] = useState(false)
     const [visibleEditModal, setVisibleEditModal] = useState(false)
-    const [currentRow, setCurrentRow] = useState()
+    const [currentRow, setCurrentRow] = useState(null)
 
     useEffect(() => {
-
-    });
+        if (currentRow) {
+            setVisibleEditModal(true)
+            console.log("Current row", currentRow)
+        }
+    }, [currentRow]);
 
 
     const columns = [
@@ -65,8 +68,7 @@ function Product() {
             render: (text, record) =>
                 data.length >= 1 ? (
                     <Space size="middle">
-                        {setCurrentRow(record)}
-                        <a /**onClick={showEditModal()}*/>Uredi</a>
+                        <a onClick={() => showEditModal(record)}>Uredi</a>
                         <Popconfirm title="Jeste li sigurni da želite obrisati ovaj proizvod?"
                             okText="Da"
                             cancelText="Ne"
@@ -88,8 +90,8 @@ function Product() {
     }
 
     const showEditModal = (record) => {
-        console.log("klik")
-        setVisibleEditModal(true)
+        console.log("klik", record)
+        setCurrentRow(record)
     };
 
     const hideEditModal = () => {
